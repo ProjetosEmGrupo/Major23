@@ -1,0 +1,62 @@
+ <?php 
+ echo (isset($this->alert) ? $this->alert : '');
+ switch ($view_tipo) {
+          case "Pratos": $tipo = 1; 
+          break;        
+          case "Lanches": $tipo = 2;
+          break;
+          case "Bebidas": $tipo = 3;
+          break;
+          case "Sobremesa": $tipo = 4;
+          break;
+          case "Outros": $tipo = 5;
+          break;
+ }
+ ?>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Major 23</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="<?php echo BASE . 'estoque/menu'; ?>"><button type="button" class="btn btn-dark">Voltar</button></a>
+  </nav>
+  <br>
+  <div class="container-fluid">
+    <div class="text-center">
+      <br>
+      <br>
+      <h1 class="h3 mb-2 font-weight-normal">Editar <?php echo $view_tipo; ?></h1>
+      <br>
+      <br>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Tipo:</th>
+          <th scope="col">Produto:</th>
+   
+          <th scope="col">Preço:</th>
+          <th scope="col">Ações:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($view_produtos as $p) {?>
+          <tr>
+            <th scope="row"><?php echo $p->tipo; ?></th>
+            <td><?php echo $p->nome; ?></td>
+           
+            <td>R$<?php echo $p->preco; ?></td>
+              <td>
+                <a href="<?php echo BASE. 'estoque/editar/'. $p->id; ?>" class="badge badge-dark" >Editar</a>
+                <a href="<?php echo BASE . 'estoque/excluir/' . $p->id; ?>" class="badge badge-dark">Excluir</a>
+              </td>
+            </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>

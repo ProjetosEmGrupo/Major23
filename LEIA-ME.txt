@@ -1,0 +1,15 @@
+Passos de Instalação:
+
+1 - Baixe o WampServer em http://www.wampserver.com/en/ 
+
+2 - Instale e certifique que esteja com o ícone verde quando for executar, e use a versão de PHP 7.0.33 (Menu do WampServer).
+
+3 - Execute a configuração do banco de dados em http://localhost/phpmyadmin, entre com o usuário "root" e sem senha.
+
+4 - Execute as linhas do arquivo SQL.txt no PhpMyAdmin.
+
+5 - Coloque a pasta "sistema" dentro da pasta "www" na pasta de instalação do WampServer (Por padrão localizada na raíz do disco C:\)
+
+6 - Após isso acesse o link http://localhost/sistema/estoque para ir para de inicio no sistema.
+
+Se tudo ocorrer bem, o sistema já estará pronto para o funcionamento...

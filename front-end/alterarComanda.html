@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Major 23</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="comandasAtivas.html"><button type="button" class="btn btn-dark">Voltar</button></a>
+      <a class="nav-link justify-content-end" href="#"><button type="button" class="btn btn-dark">Concluir</button></a>
+    </nav>
+    <br>
+  <div class="container-fluid">
+    <div class="text-center">
+      <br>
+      <br>
+      <h1 class="h3 mb-2 font-weight-normal">Alterar Comanda</h1>
+      <br>
+      </div>
+            <label for="mesa">Mesa:</label>
+                <select id="mesa">
+                  <option value="pratos">1</option>
+                  <option value="pratos">2</option>
+                  <option value="pratos">3</option>
+                  <option value="pratos">4</option>
+                  <option value="pratos">5</option>
+                </select>
+              &nbsp
+            <label for="resp">Viagem?</label>
+              <select id="resp">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+              </select>
+        <br>
+        <br>
+        <input type="text" class="form-control" placeholder="Endereço: " aria-label="Nome" aria-describedby="basic-addon1">
+        <br>
+        <div class="text-center">
+          <a href="registrarItemComanda.html"><button type="button" class="btn btn-dark">Adicionar Item</button></a>
+          <a href="observacaoComanda.html"><button type="button" class="btn btn-dark">Adicionar Observação</button></a>
+        </div>
+        <br>
+      <div class="text-center">
+      <h1 class="h5 mb-2 font-weight-normal">Itens:</h1>
+        <br>
+      </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Tipo:</th>
+              <th scope="col">Produto:</th>
+              <th scope="col">Quantidade:</th>
+              <th scope="col">Preço:</th>
+              <th scope="col">Ações:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Prato</th>
+              <td>xxxxx</td>
+              <td>1</td>
+              <td>R$10,00</td>
+              <td>
+                <a href="#" class="badge badge-dark" data-toggle="modal" data-target="#Mensagem">Excluir</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+        <!-- Modal de Mensagem -->
+        <div class="modal fade" id="Mensagem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Exclusão</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Deseja excluir item?
+              </div>
+              <div class="modal-footer">
+                <a href=""><button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button></a>
+                <a href=""><button type="button" class="btn btn-dark">Sim</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

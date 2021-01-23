@@ -1,0 +1,68 @@
+  <FORM method="POST" action="<?php echo BASE . 'comanda/adiciona-alteracao/'. $view_pedido .'/'. $view_idtipo . '/'. (isset($view_produto) ? $view_produto->id: '');  ?>" enctype="multipart/form-data">
+    <?php echo (isset($this->alert) ? $this->alert : '')?>
+    <html lang="pt">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Major 23</title>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="<?php echo BASE.'comanda/alterar/'. $view_id .'/'. (((int)$view_pedido == 1) ? $view_pedido: '2/'. (string)($view_pedido - 2)); ?>"><button type="button" class="btn btn-dark">Voltar</button></a>
+        <input type="submit" value="Salvar" class="btn btn-dark" <?php echo (isset($view_produto) ? '': 'disabled="true"');?>>
+      </nav>
+      <br>
+      <div class="container-fluid">
+        <div class="text-center">
+          <br>
+          <br>
+          <h1 class="h3 mb-2 font-weight-normal">Adicionar Item</h1>
+          <br>
+          <br>
+        </div>
+        <div class="col-md-12">
+          <label for="cardapio">Tipo:</label>
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?php echo $view_tipo; ?>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="<?php echo BASE. 'comanda/adiciona-alteracao/'. $view_pedido .'/1' ?>">Pratos</a>
+            <a class="dropdown-item" href="<?php echo BASE. 'comanda/adiciona-alteracao/'. $view_pedido .'/2' ?>">Lanches</a>
+            <a class="dropdown-item" href="<?php echo BASE. 'comanda/adiciona-alteracao/'. $view_pedido .'/3' ?>">Bebidas</a>
+            <a class="dropdown-item" href="<?php echo BASE. 'comanda/adiciona-alteracao/'. $view_pedido .'/4' ?>">Sobremesa</a>
+            <a class="dropdown-item" href="<?php echo BASE. 'comanda/adiciona-alteracao/'. $view_pedido .'/5' ?>">Outros</a>
+          </div>
+          <br>
+          <br>
+          <label for="item">Item: </label><div class="btn-group">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <?php echo (isset($view_produto) ? $view_produto->nome : 'Selecione um item');?>
+            </button>
+            <div class="dropdown-menu">
+              <?php foreach ($view_produtos as $p) {?>
+                <a class="dropdown-item" href="<?php echo BASE. 'comanda/adiciona-alteracao/'. $view_pedido .'/'. $view_idtipo . '/'. $p->id; ?>"><?php echo $p->nome; ?></a>
+              <?php } ?>
+            </div>
+          </div>
+          <br>
+          <br>
+          <label for="qtd">Quantidade:
+            <input   <?php echo (isset($view_produto) ? '': 'disabled="true"');?> required="true" type="text" name="qtd" class="form-control" id="qtd" aria-label="Nome" aria-describedby="basic-addon1">
+          </label>
+          <br>
+          <br>
+          Preço: R$ <?php echo (isset($view_produto) ? $view_produto->preco : '--,--'); ?>
+        </div>
+        <br>
+        <br>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+    </body>
+    </html>

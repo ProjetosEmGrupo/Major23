@@ -1,0 +1,26 @@
+{
+    "name": "Bruno/hxphp",
+    "require": {
+        "php-activerecord/php-activerecord": "dev-master",
+        "verot/class.upload.php": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Bruno Campos Santos",
+            "email": "bruno@hxphp.com.br"
+        },
+        {
+            "name": "Gilglécio Santos",
+            "email": "gilglecio@hxphp.com.br"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "": ["src/"]
+        }
+    },
+    "config": {
+        "discard-changes": "stash",    
+        "preferred-install": "dist"    
+    }
+}

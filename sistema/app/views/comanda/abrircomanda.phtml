@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<?php echo (isset($this->alert) ? $this->alert : '')?>
+<?php $isso = $view_viagem + (isset($view_mesa) ? $view_mesa : 0); ?>
+
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Major 23</title>
+  <?php 
+  if(isset($view_itens)){
+    if(!empty($view_itens)){
+      $var = '';
+    }
+    else{
+      $var = 'disabled';
+    }
+  }
+  else{
+    $var = 'disabled';
+  }
+  ?>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="<?php echo BASE.'comanda/limpa/';?>"><button type="button" class="btn btn-dark">Voltar</button></a>
+    <a class="nav-link justify-content-end"  href="<?php echo BASE. 'comanda/cadastra/'. $isso; ?>"><button type="button" class="btn btn-dark" <?php echo $var; ?> >Concluir</button></a>
+  </nav>
+  <br>
+  <div class="container-fluid">
+    <div class="text-center">
+      <br>
+      <br>
+      <h1 class="h3 mb-2 font-weight-normal">Abrir Comanda</h1>
+      <br>
+    </div>
+    <label for="resp">Viagem?</label>
+    <div class="btn-group">
+      <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <?php echo ($view_viagem == 1 ? 'Sim' : 'Não')?>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/1' ?>">Não</a>
+        <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/1' ?>">Sim</a>  
+      </div>
+    </div>
+    &nbsp
+    <?php if(isset($view_mesa)){ ?>
+      <label for="mesa">Mesa:</label>
+      <div class="btn-group">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <?php echo $view_mesa; ?>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/1' ?>">1</a>
+          <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/2' ?>">2</a>
+          <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/3' ?>">3</a>
+          <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/4' ?>">4</a>
+          <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/5' ?>">5</a>
+          <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/6' ?>">6</a>
+          <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/7' ?>">7</a>
+          <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/8' ?>">8</a>
+          <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/9' ?>">9</a>
+          <a class="dropdown-item" href="<?php echo BASE . 'comanda/abrir/2/10' ?>">10</a>
+        </div>
+      </div>
+    <?php } ?>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="text-center">
+      <a href="<?php echo BASE. 'comanda/adiciona/'. $isso . '/1'; ?>"><button type="button" class="btn btn-dark">Adicionar Item</button></a>
+      <a href="<?php echo BASE. 'comanda/observacao/'. $isso; ?>"><button type="button" class="btn btn-dark">Adicionar Observação</button></a>
+    </div>
+    <br>
+    <div class="text-center">
+      <h1 class="h5 mb-2 font-weight-normal">Itens:</h1>
+      <br>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Tipo:</th>
+          <th scope="col">Produto:</th>
+          <th scope="col">Quantidade:</th>
+          <th scope="col">Preço:</th>
+          <th scope="col">Ações:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php if(isset($view_itens)){
+          foreach ($view_itens as $i) {
+            $p = Product::find($i->products_id);
+            ?>
+            <tr>
+              <th scope="row"><?php echo $p->tipo; ?></th>
+              <td><?php echo $p->nome; ?></td>
+              <td><?php echo $i->qtd; ?></td>
+              <td>R$<?php echo $i->qtd * $p->preco; ?></td>
+              <td>
+                <a href="<?php echo BASE. 'comanda/remove/'. $isso . '/'. $i->products_id; ?>" class="badge badge-dark">Excluir</a>
+              </td>
+            </tr>
+          <?php } 
+        }?>
+      </tbody>
+    </table>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

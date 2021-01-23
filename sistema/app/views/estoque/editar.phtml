@@ -1,0 +1,70 @@
+<FORM method="POST" action="<?php echo BASE . 'estoque/editar/' . $view_post->id;  ?>" enctype="multipart/form-data">
+  <?php echo (isset($this->alert) ? $this->alert : '');
+   switch($view_post->tipo){
+          case "Pratos": $tipo = 1; 
+          break;        
+          case "Lanches": $tipo = 2;
+          break;
+          case "Bebidas": $tipo = 3;
+          break;
+          case "Sobremesa": $tipo = 4;
+          break;
+          case "Outros": $tipo = 5;
+          break;
+ }?>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Major 23</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="<?php echo BASE. 'estoque/lista/'. $tipo; ?>"><button type="button" class="btn btn-dark">Voltar</button></a>
+      <input type="submit" class="btn btn-dark" value="Salvar">
+    </nav>
+    <br>
+  <div class="container-fluid">
+      <div class="text-center">
+      <br>
+      <br>
+      <h1 class="h3 mb-2 font-weight-normal">Editar Item</h1>
+      <br>
+      <br>
+      </div>
+      <div class="col-md-12">
+      <input type="text" name="nome" maxlength="45" value="<?php echo $view_post->nome; ?>" class="form-control" placeholder="Nome: " aria-label="Nome" aria-describedby="basic-addon1" required="true">
+      </div>
+      <br>
+      <br>
+      <div class="col-md-3">
+           <label for="cardapio">Tipo:</label>
+                <select name="tipo" id="cardapio" required="true">
+                  <option <?php if($view_post->tipo == 'Pratos'){echo "selected"; } ?>value="Pratos">Pratos</option>
+                  <option <?php if($view_post->tipo == 'Lanches'){echo "selected"; } ?> value="Lanches">Lanches</option>
+                  <option <?php if($view_post->tipo == 'Bebidas'){echo "selected"; } ?> value="Bebidas">Bebidas</option>
+                  <option <?php if($view_post->tipo == 'Sobremesa'){echo "selected"; } ?> value="Sobremesa">Sobremesa</option>
+                  <option <?php if($view_post->tipo == 'Outros'){echo "selected"; } ?> value="Outros">Outros</option>
+                </select>
+      <br>
+      <br>
+        <input type="number" step="any" min="0" required="true" class="form-control" name="preco" placeholder="Preço: " aria-label="Nome" aria-describedby="basic-addon1" value="<?php echo $view_post->preco; ?>">
+      <br>
+      <br>
+            <label for="resp">Preparavel?</label>
+              <select id="resp" name="preparavel" required="true">
+                <option <?php if($view_post->preparavel == 'Sim'){echo "selected"; } ?>  value="Sim">Sim</option>
+                <option <?php if($view_post->preparavel == 'Não'){echo "selected"; } ?>  value="Não">Não</option>
+              </select>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
